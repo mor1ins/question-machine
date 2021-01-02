@@ -3,6 +3,14 @@ import {ListGroup, ListGroupItem} from "react-bootstrap";
 
 
 class QuestionSelector extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            active: null,
+        };
+    }
+
     render() {
         const questions = [
             1,   2,  3,  4,  5,  6,  7,  8,  9, 10,
@@ -12,7 +20,7 @@ class QuestionSelector extends React.Component {
 
         return (
             <div className='col-md-4 overflow-auto collapse' id="navbarToggleExternalContent">
-                <ListGroup className='answer-list'>
+                <ListGroup className='d-flex flex-column answer-list'>
                     {questions.map((q) => (<ListGroupItem>{q}</ListGroupItem>))}
                 </ListGroup>
             </div>
