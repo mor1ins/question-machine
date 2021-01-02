@@ -4,6 +4,7 @@ import Question from "./Question";
 import CodeView from "./Code";
 import Answers from "./Answers";
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
 
 
 class QuestionCard extends React.Component {
@@ -27,23 +28,45 @@ class QuestionCard extends React.Component {
             ?
                 (
                     <Card className="question-card">
-                        <Card.Header as="h5">
-                            Необходимо выбрать
+                        <Card.Header as="h3">
+                            Question Machine
                         </Card.Header>
                         <Card.Body>
-                            <Card.Title>Выбор</Card.Title>
+                            <Card.Title as='h5'>
+                                Выберите режим тестирования
+                            </Card.Title>
                             <Card.Text>
                                 <div className='d-flex flex-column'>
-                                    <div>Описание выбора</div>
-                                    <div className='question-card__button_container d-flex justify-content-between'>
-                                        <Button className='button_container__question-button' variant="primary">
+                                    <ul>
+                                        <li><strong>Исправление ошибок [TODO]</strong> - список вопросов сортируется
+                                            по проценту совершенных ошибок при прошлых прохождениях</li>
+                                        <li><strong>Перемешать [TODO]</strong> - случайный порядок</li>
+                                        <li><strong>Начать сначала</strong> - вопросы с первого до последнего</li>
+                                        <li><strong>Экзамен [TODO]</strong> - 40 случайных вопросов</li>
+                                    </ul>
+                                    <div className='question-card__button_container d-flex justify-content-around'>
+                                        <Button
+                                            className='button_container__question-button'
+                                            variant="primary"
+                                            disabled={true}>
                                             Исправление ошибок
                                         </Button>
-                                        <Button className='button_container__question-button' variant="primary">
+                                        <Button
+                                            className='button_container__question-button'
+                                            variant="primary"
+                                            disabled={true}>
                                             Перемешать
                                         </Button>
+                                    </div>
+                                    <div className='question-card__button_container d-flex justify-content-around'>
                                         <Button className='button_container__question-button' variant="primary">
                                             Начать сначала
+                                        </Button>
+                                        <Button
+                                            className='button_container__question-button'
+                                            variant="primary"
+                                            disabled={true}>
+                                            Экзамен
                                         </Button>
                                     </div>
                                 </div>
